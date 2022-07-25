@@ -4,6 +4,21 @@
 // scissors beats paper
 // paper beats rock
 // rock beats scissors
+
+const gameWinningOptions = [
+    {
+        name: 'scissors',
+        beats: 'paper'
+    },
+    {
+        name: 'paper',
+        beats: 'rock'
+    },
+    {
+        name: 'rock',
+        beats: 'scissors'
+    }
+]
 // 2. a function to take the users choice (dom interaction) and store it inside a variable
 // 3. the computer will randomly select rock, paper or scissors 
 // (array which holds all the options, variable to choose the random number
