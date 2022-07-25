@@ -29,7 +29,9 @@ for(let i = 0; i < userOptions.length; i++) {
     userOptions[i].addEventListener('click', function(event) {
         // target is what element has been clicked
         const usersChoice = event.target.value;
+        const computersChoice = computerChoiceGenerator()
         console.log('usersChoice', usersChoice)
+        console.log('computersChoice', computersChoice)
     })
 }
 
@@ -38,6 +40,14 @@ for(let i = 0; i < userOptions.length; i++) {
 // (array which holds all the options, variable to choose the random number
 // array[randomNumber], store the computers choice in a variable, 
 // store the code inside a function)
+function computerChoiceGenerator () {
+    const options = ['rock', 'paper', 'scissors'];
+    const randomIndex = Math.floor(Math.random() * options.length);
+    return options[randomIndex]
+}
+
+
+
 // 4. function to check who is the winner
 // 5. whoever the winner is increase the score 
 // 6. Reset the scores of each user back to zero 
