@@ -18,8 +18,22 @@ const gameWinningOptions = [
         name: 'rock',
         beats: 'scissors'
     }
-]
+];
+
 // 2. a function to take the users choice (dom interaction) and store it inside a variable
+const userOptions = document.getElementsByClassName('user-options');
+
+for(let i = 0; i < userOptions.length; i++) {
+    // key events to focus on submit, change, click
+    // function inside event listener is a callback function
+    userOptions[i].addEventListener('click', function(event) {
+        // target is what element has been clicked
+        const usersChoice = event.target.value;
+        console.log('usersChoice', usersChoice)
+    })
+}
+
+
 // 3. the computer will randomly select rock, paper or scissors 
 // (array which holds all the options, variable to choose the random number
 // array[randomNumber], store the computers choice in a variable, 
