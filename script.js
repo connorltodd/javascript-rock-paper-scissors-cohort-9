@@ -49,5 +49,6 @@ function computerChoiceGenerator () {
 
 
 // 4. function to check who is the winner
+console.log('trying to cause merge conflict')
 // 5. whoever the winner is increase the score 
 // 6. Reset the scores of each user back to zero 
