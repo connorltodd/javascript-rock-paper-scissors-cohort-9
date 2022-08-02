@@ -30,8 +30,9 @@ for(let i = 0; i < userOptions.length; i++) {
         // target is what element has been clicked
         const usersChoice = event.target.value;
         const computersChoice = computerChoiceGenerator()
-        console.log('usersChoice', usersChoice)
-        console.log('computersChoice', computersChoice)
+        // console.log('usersChoice', usersChoice)
+        // console.log('computersChoice', computersChoice)
+        checkWinner(computersChoice, usersChoice)
     })
 }
 
@@ -49,5 +50,62 @@ function computerChoiceGenerator () {
 
 
 // 4. function to check who is the winner
-// 5. whoever the winner is increase the score 
-// 6. Reset the scores of each user back to zero 
+function checkWinner (computersChoice, usersChoice) {
+    console.log('usersChoice', usersChoice)
+    console.log('computersChoice', computersChoice)
+
+    const computersChoiceObject = gameWinningOptions.find(
+        function(option) {
+            // console.log('option', option)
+            if(option.name === computersChoice) {
+                return option;
+            }
+        }
+    )
+
+    const usersChoiceObject = gameWinningOptions.find(
+        function(option) {
+            // console.log('option', option)
+            if(option.name === usersChoice) {
+                return option;
+            }
+        }
+    )
+
+    if(computersChoiceObject.beats === usersChoice) {
+        console.log('computer wins');
+        updateScores('computer')
+        return;
+    }
+
+    if(usersChoiceObject.beats === computersChoice) {
+        console.log('user wins');
+        updateScores('user')
+        return;
+    }
+
+    console.log('this round was a draw')
+}
+
+// 5. whoever the winner is increase the score (if there is a draw do not increment scores)
+function updateScores (winner) {
+    const computerScore = document.getElementById('computer-score');
+    const userScore = document.getElementById('user-score');
+
+    if (winner === 'user') {
+        userScore.innerText = Number(userScore.innerText) + 1
+    }
+        
+    if(winner === 'computer') {
+        computerScore.innerText = Number(computerScore.innerText) + 1
+    }
+}
+
+
+// 6. Reset the scores of each user back to zero
+function resetScores () {
+    const computerScore = document.getElementById('computer-score');
+    const userScore = document.getElementById('user-score');
+    userScore.innerText = 0
+    computerScore.innerText = 0;
+} 
